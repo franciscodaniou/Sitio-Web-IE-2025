@@ -1,142 +1,105 @@
 const header = document.querySelector("header");
 const body = document.querySelector('body');
 const tarjetas = document.querySelectorAll('.tarjeta');
+const proyectosTitulo = document.querySelector('.proyectos h2');
+const galeria = document.querySelector('.galeria');
 
 // Header oculto al scroll
 let lastScroll = 0;
 window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-  if(currentScroll <= 0){ header.style.top = "0"; return; }
-  if(currentScroll > lastScroll){ header.style.top = "-100px"; }
-  else { header.style.top = "0"; }
-  lastScroll = currentScroll;
-  
+    const currentScroll = window.pageYOffset;
+    if(currentScroll <= 0){ header.style.top = "0"; return; }
+    if(currentScroll > lastScroll){ header.style.top = "-100px"; }
+    else { header.style.top = "0"; }
+    lastScroll = currentScroll;
 });
 
-// Expansión de tarjetas al click
+// Toggle galería
+proyectosTitulo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    galeria.classList.toggle('active');
+});
+
+// Expansión de tarjetas: cuadrado centrico solo imagen
 tarjetas.forEach(tarjeta => {
     tarjeta.addEventListener('click', (e) => {
         e.stopPropagation();
-        if(!tarjeta.classList.contains('expand')){
+        if(body.classList.contains('modal-active')) return;
 
-            const rect = tarjeta.getBoundingClientRect();
-            const originX = (e.clientX - rect.left)/rect.width*100 + '%';
-            const originY = (e.clientY - rect.top)/rect.height*100 + '%';
-            tarjeta.style.setProperty('--origin-x', originX);
-            tarjeta.style.setProperty('--origin-y', originY);
+        const rect = tarjeta.getBoundingClientRect();
+        const clone = tarjeta.cloneNode(true);
+        clone.classList.add('expand-clone');
 
-            tarjeta.style.top = rect.top + 'px';
-            tarjeta.style.left = rect.left + 'px';
-            tarjeta.classList.add('expand');
+        // Solo la imagen dentro
+        const img = clone.querySelector('img');
+        const title = clone.querySelector('h3');
+        if(title) title.remove();
 
-            void tarjeta.offsetWidth;
+        // Estilos del cuadrado centrico
+        clone.style.position = 'fixed';
+        clone.style.top = rect.top + 'px';
+        clone.style.left = rect.left + 'px';
+        clone.style.width = rect.width + 'px';
+        clone.style.height = rect.width + 'px'; // cuadrado
+        clone.style.margin = 0;
+        clone.style.zIndex = 50;
+        clone.style.transition = 'all 0.4s ease';
+        clone.style.display = 'flex';
+        clone.style.alignItems = 'center';
+        clone.style.justifyContent = 'center';
+        clone.style.borderRadius = '24px';
+        clone.style.background = 'rgba(255,255,255,0.18)';
+        clone.style.backdropFilter = 'blur(6px) saturate(300%) brightness(0.95)';
+        clone.style.overflow = 'hidden';
+        clone.style.boxSizing = 'border-box';
 
-            tarjeta.style.top = '50%';
-            tarjeta.style.left = '50%';
-            tarjeta.style.transform = 'translate(-50%,-50%) scale(3)';
+        if(img){
+            img.style.width = '90%';
+            img.style.height = '90%';
+            img.style.objectFit = 'contain';
+            img.style.margin = 'auto';
+            img.style.display = 'block';
+        }
 
-            body.classList.add('modal-active');
+        body.appendChild(clone);
+        body.classList.add('modal-active');
 
-        } else {
+        // Animación de centrado con tamaño mayor
+        requestAnimationFrame(() => {
+            clone.style.top = '50%';
+            clone.style.left = '50%';
+            clone.style.width = '60vw'; // más grande
+            clone.style.height = '60vw'; // cuadrado proporcional
+            clone.style.maxWidth = '600px'; // ajustar max tamaño
+            clone.style.maxHeight = '600px';
+            clone.style.transform = 'translate(-50%, -50%)';
+        });
+
+        // Cierre al click y abrir link
+        clone.addEventListener('click', () => {
             const link = tarjeta.dataset.link;
             if(link) window.open(link, "_blank");
-            tarjeta.classList.remove('expand');
-            body.classList.remove('modal-active');
-            tarjeta.style.transform = '';
-            tarjeta.style.top = '';
-            tarjeta.style.left = '';
-        }
+
+            // Animación de cierre
+            clone.style.width = rect.width + 'px';
+            clone.style.height = rect.width + 'px';
+            clone.style.top = rect.top + 'px';
+            clone.style.left = rect.left + 'px';
+            clone.style.transform = '';
+            setTimeout(() => {
+                clone.remove();
+                body.classList.remove('modal-active');
+            }, 400);
+        });
     });
-});
-
-document.querySelectorAll('.tarjeta').forEach(card => {
-  let expanded = false;
-
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    const link = card.querySelector('a');
-
-    if (!expanded) {
-      // expandir
-      card.classList.add('expand');
-      expanded = true;
-    } else {
-      // cerrar
-      card.classList.remove('expand');
-      expanded = false;
-
-      // aplicar no-hover para anular el efecto hover
-      card.classList.add('no-hover');
-      setTimeout(() => {
-        card.classList.remove('no-hover'); // se quita tras volver al estado normal
-      }, 300);
-
-      if (link) {
-        window.open(link.href, '_blank');
-      }
-    }
-  });
-});
-
-document.querySelectorAll('.tarjeta').forEach(card => {
-  let expanded = false;
-
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    const link = card.querySelector('a');
-
-    if (!expanded) {
-      // expandir
-      card.classList.add('expand');
-      expanded = true;
-    } else {
-      // cerrar
-      card.classList.remove('expand');
-      expanded = false;
-
-      // aplicar no-hover para anular el efecto hover
-      card.classList.add('no-hover');
-      setTimeout(() => {
-        card.classList.remove('no-hover'); // se quita tras volver al estado normal
-      }, 300);
-
-      if (link) {
-        window.open(link.href, '_blank');
-      }
-    }
-  });
-});
-
-// Ajuste dinámico de color de texto al hover sobre vidrio
-const elementos = [header, ...tarjetas, ...document.querySelectorAll('button'), document.querySelector('.intro')];
-
-function adjustTextColor(el){
-    el.querySelectorAll('p,h1,h2,h3,button').forEach(t => t.style.color=' rgba(161, 174, 182, 0.78)');
-}
-function resetTextColor(el){
-    el.querySelectorAll('p,h1,h2,h3,button').forEach(t => t.style.color='');
-}
-
-elementos.forEach(el=>{
-    el.addEventListener('mouseenter',()=>adjustTextColor(el));
-    el.addEventListener('mouseleave',()=>resetTextColor(el));
 });
 
 // Cerrar expansión al click fuera
 body.addEventListener('click', (e)=>{
     if(e.target===body && body.classList.contains('modal-active')){
-        document.querySelectorAll('.tarjeta.expand').forEach(t=>{
-            t.classList.remove('expand');
-            t.style.transform='';
-            t.style.top='';
-            t.style.left='';
+        document.querySelectorAll('.expand-clone').forEach(t=>{
+            t.remove();
         });
         body.classList.remove('modal-active');
     }
-});
-const proyectosTitulo = document.querySelector('.proyectos h2');
-const galeria = document.querySelector('.galeria');
-
-proyectosTitulo.addEventListener('click', () => {
-  galeria.classList.toggle('active');
 });
