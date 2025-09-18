@@ -1,5 +1,5 @@
-/* Reset */
-* {
+
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,7 +27,7 @@ body::after {
   height: 12rem;
   pointer-events: none;
   z-index: 5;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   -webkit-backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
 }
@@ -50,7 +50,8 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  max-width: 1400px; /* ancho aumentado */
+  max-width: 1400px;
+  /* ancho aumentado */
   margin: auto;
   padding-top: 2rem;
 }
@@ -60,17 +61,22 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  text-align: justify;         /* texto justificado */
-  text-align-last: center;     /* última línea centrada */
+  text-align: justify;
+  /* texto justificado */
+  text-align-last: center;
+  /* última línea centrada */
   padding: 1.5rem 2rem;
   border-radius: 34px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
-  border: 1px solid rgba(220,220,220,0.6); /* borde reducido */
-  box-shadow: 0 12px 28px rgba(0,0,0,0.32),0 6px 14px rgba(173,216,255,0.45);
-  transition: all 0.35s ease;
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  /* borde reducido */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
+  transition: all 2s ease, color 1s ease;
+  /* ahora incluye color y es lenta */
   margin-bottom: 2rem;
   color: var(--text-color);
+  /* color inicial (probablemente blanco) */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -78,20 +84,23 @@ header {
 
 header:hover {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,1);
-  box-shadow: 0 22px 44px rgba(0,0,0,0.45), 0 0 36px rgba(173,216,255,0.55);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
+  color: rgba(163, 161, 161, 0.615);
+  /* gris suave al hover */
 }
 
 /* Intro */
 .intro {
   padding: 2rem;
   border-radius: 34px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
-  border: 2px solid rgba(220,220,220,0.8);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.32),0 6px 14px rgba(173,216,255,0.45);
+  border: 2px solid rgba(220, 220, 220, 0.8);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
-  transition: all 0.4s ease, color 0.4s ease;
+  transition: all 2s ease, color 1.5s ease;
+  /* transición mucho más lenta */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -100,8 +109,8 @@ header:hover {
 
 .intro:hover {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,1);
-  box-shadow: 0 22px 44px rgba(0,0,0,0.45),0 0 36px rgba(173,216,255,0.55);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
 }
 
@@ -115,13 +124,14 @@ header:hover {
   position: relative;
   padding: 2rem;
   border-radius: 34px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   -webkit-backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
-  border: 1px solid rgba(220,220,220,0.4);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.32), 0 6px 14px rgba(173,216,255,0.45);
+  border: 1px solid rgba(220, 220, 220, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
-  transition: all 0.4s ease, color 0.4s ease; /* transiciones suaves */
+  transition: all 0.4s ease, color 0.4s ease;
+  /* transiciones suaves */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -131,14 +141,16 @@ header:hover {
 .sobre-p5js:hover {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
   -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,1);
-  box-shadow: 0 22px 44px rgba(0,0,0,0.45), 0 0 36px rgba(173,216,255,0.55);
-  color: rgba(163, 161, 161, 0.615); /* gris uniforme con otros textos */
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
+  color: rgba(163, 161, 161, 0.615);
+  /* gris uniforme con otros textos */
 }
 
 .sobre-p5js p,
 .sobre-p5js button {
-  color: inherit; /* hereda el gris al hover */
+  color: inherit;
+  /* hereda el gris al hover */
   transition: inherit;
 }
 
@@ -148,33 +160,39 @@ button {
   width: 100%;
   padding: .6rem 1.2rem;
   border-radius: 30px;
-  border: 2px solid rgba(220,220,220,0.8);
+  border: 2px solid rgba(220, 220, 220, 0.8);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.4s ease;
-  background: rgba(255,255,255,0.18);
+  transition: all 0.6s ease, color 0.6s ease;
+  /* transición más suave e incluye color */
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   color: var(--text-color);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.32),0 4px 10px rgba(173,216,255,0.45);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32), 0 4px 10px rgba(173, 216, 255, 0.45);
+  box-sizing: border-box;
+  /* asegura que el padding no haga crecer fuera de la caja */
 }
 
 button:hover {
-  transform: scale(1.12);
+  padding: .8rem 1.5rem;
+  /* más expansión */
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,1);
-  box-shadow: 0 18px 36px rgba(0,0,0,0.45),0 0 36px rgba(173,216,255,0.55);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5), 0 0 44px rgba(173, 216, 255, 0.6);
+  color: rgba(163, 161, 161, 0.615);
 }
 
 /* Galería */
 .proyectos h2 {
-  margin-bottom:1rem;
-  font-size:1.3rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
+
 .galeria {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -188,10 +206,10 @@ button:hover {
   gap: 2rem;
   padding: 2rem;
   border-radius: 34px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
-  border: 2px solid rgba(220,220,220,0.8);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.32), 0 8px 18px rgba(173,216,255,0.45);
+  border: 2px solid rgba(220, 220, 220, 0.8);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), 0 8px 18px rgba(173, 216, 255, 0.45);
   overflow: hidden;
   cursor: pointer;
   color: var(--text-color);
@@ -236,8 +254,8 @@ button:hover {
 .tarjeta:hover {
   transform: scale(1.1);
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,1);
-  box-shadow: 0 28px 56px rgba(0,0,0,0.45),0 0 44px rgba(173,216,255,0.55);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.45), 0 0 44px rgba(173, 216, 255, 0.55);
 }
 
 /* Expansión al click */
@@ -245,37 +263,44 @@ button:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(3);
+  transform: translate(-50%, -50%) scale(3);
   z-index: 999;
-  border-radius: 40px; /* aumento proporcional */
-  box-shadow: 0 28px 56px rgba(0,0,0,0.55),0 0 44px rgba(173,216,255,0.55);
-  background: rgba(255,255,255,0.18);
+  border-radius: 40px;
+  /* aumento proporcional */
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
+  background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(1.05);
-  border: 2px solid rgba(220,220,220,0.8);
+  border: 2px solid rgba(220, 220, 220, 0.8);
   transition: transform 0.5s ease, border 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease;
 }
+
 .tarjeta.expand img {
   width: 400px;
   height: auto;
-  border-radius: 28px; /* proporcional al contenedor expandido */
+  border-radius: 28px;
+  /* proporcional al contenedor expandido */
 }
+
 /* Ajuste general de los bordes */
 header,
 .intro,
 button,
 .tarjeta,
 .tarjeta.expand {
-  border: 1px solid rgba(220,220,220,0.4);
+  border: 1px solid rgba(220, 220, 220, 0.4);
 }
+
 /* Texto base más legible */
 body {
-  font-size: 1.15rem;  /* más grande por defecto */
+  font-size: 1.15rem;
+  /* más grande por defecto */
   line-height: 1.75;
 }
 
 /* Títulos principales estilo display */
 h1 {
-  font-size: 3.5rem;  /* muy protagónico */
+  font-size: 3.5rem;
+  /* muy protagónico */
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -323,8 +348,10 @@ button {
 
 /* Ajuste de tarjetas dentro de la galería */
 .galeria .tarjeta {
-  flex: 1 1 calc(50% - 1rem); /* 2 columnas flexibles */
-  min-width: 280px; /* evita que queden demasiado angostas */
+  flex: 1 1 calc(50% - 1rem);
+  /* 2 columnas flexibles */
+  min-width: 280px;
+  /* evita que queden demasiado angostas */
 }
 
 .proyectos h2 {
@@ -344,16 +371,20 @@ button {
 /* Hover del título que funciona como botón */
 .proyectos h2:hover {
   color: rgba(163, 161, 161, 0.615);
-  text-shadow: 0 0 12px rgba(173,216,255,0.55), 0 0 8px rgba(173,216,255,0.35);
+  text-shadow: 0 0 12px rgba(173, 216, 255, 0.55), 0 0 8px rgba(173, 216, 255, 0.35);
 }
+
 .proyectos h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  position: relative; /* necesario para ::after */
-  z-index: 1; /* texto por encima del fondo de vidrio */
-  padding: 0.5rem 1rem; /* espacio interno para que el vidrio no corte el texto */
+  position: relative;
+  /* necesario para ::after */
+  z-index: 1;
+  /* texto por encima del fondo de vidrio */
+  padding: 0.5rem 1rem;
+  /* espacio interno para que el vidrio no corte el texto */
   line-height: 1.2;
 }
 
@@ -365,32 +396,36 @@ button {
   width: 100%;
   height: 100%;
   border-radius: 34px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   pointer-events: none;
   opacity: 0;
-  border: 1px solid rgba(220,220,220,0.4);
+  border: 1px solid rgba(220, 220, 220, 0.4);
   transition: opacity 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
   z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25), 0 4px 10px rgba(173,216,255,0.25); /* sombra suave */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(173, 216, 255, 0.25);
+  /* sombra suave */
 }
 
 .proyectos h2:hover::after {
   opacity: 1;
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  border-color: rgba(240,240,240,0.8);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 6px 18px rgba(173,216,255,0.35); /* sombra más intensa al hover */
+  border-color: rgba(240, 240, 240, 0.8);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(173, 216, 255, 0.35);
+  /* sombra más intensa al hover */
 }
 
 /* Aberración cromática permanente más intensa */
 .tarjeta::after {
   content: '';
   position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  border-radius: 34px; /* igual que la tarjeta */
+  inset: 0;
+  /* top:0; right:0; bottom:0; left:0 */
+  border-radius: 34px;
+  /* igual que la tarjeta */
   pointer-events: none;
   background: transparent;
   border: 2.5px solid rgba(0, 191, 255, 0.5);
@@ -400,17 +435,21 @@ button {
   z-index: 3;
   box-sizing: border-box;
 }
+
 /* Evita que el hover cambie la escala si la tarjeta está expandida o en reset */
 .tarjeta.expand:hover,
 .tarjeta.no-hover:hover {
-  transform: none !important; /* fuerza tamaño normal o expandido según corresponda */
-  box-shadow: 0 28px 56px rgba(0,0,0,0.55), 0 0 44px rgba(173,216,255,0.55); /* mantiene sombra consistente */
+  transform: none !important;
+  /* fuerza tamaño normal o expandido según corresponda */
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
+  /* mantiene sombra consistente */
 }
+
 /* Intensificación al hover o expansión */
 .tarjeta:hover::after,
 .tarjeta.expand::after {
-  border-color: rgba(255,0,255,0.8);
-    border: 2.5px solid rgba(0, 191, 255, 0.5);
+  border-color: rgba(255, 0, 255, 0.8);
+  border: 2.5px solid rgba(0, 191, 255, 0.5);
   filter: blur(10px) hue-rotate(60deg) saturate(800%);
 }
 
