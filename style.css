@@ -268,7 +268,6 @@ button:hover {
   transform: translate(-50%, -50%) scale(3);
   z-index: 999;
   border-radius: 40px;
-  /* aumento proporcional */
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(1.05);
@@ -295,14 +294,12 @@ button,
 /* Texto base más legible */
 body {
   font-size: 1.15rem;
-  /* más grande por defecto */
   line-height: 1.75;
 }
 
 /* Títulos principales estilo display */
 h1 {
   font-size: 3.5rem;
-  /* muy protagónico */
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -351,9 +348,7 @@ button {
 /* Ajuste de tarjetas dentro de la galería */
 .galeria .tarjeta {
   flex: 1 1 calc(50% - 1rem);
-  /* 2 columnas flexibles */
   min-width: 280px;
-  /* evita que queden demasiado angostas */
 }
 
 .proyectos h2 {
@@ -382,11 +377,8 @@ button {
   cursor: pointer;
   user-select: none;
   position: relative;
-  /* necesario para ::after */
   z-index: 1;
-  /* texto por encima del fondo de vidrio */
   padding: 0.5rem 1rem;
-  /* espacio interno para que el vidrio no corte el texto */
   line-height: 1.2;
 }
 
@@ -409,7 +401,6 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(173, 216, 255, 0.25);
-  /* sombra suave */
 }
 
 .proyectos h2:hover::after {
@@ -417,7 +408,6 @@ button {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
   border-color: rgba(240, 240, 240, 0.8);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(173, 216, 255, 0.35);
-  /* sombra más intensa al hover */
 }
 
 /* Aberración cromática permanente más intensa */
@@ -425,9 +415,7 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  /* top:0; right:0; bottom:0; left:0 */
-  border-radius: 34px;
-  /* igual que la tarjeta */
+  border-radius: 40px;
   pointer-events: none;
   background: transparent;
   border: 2.5px solid rgba(0, 191, 255, 0.5);
@@ -442,9 +430,7 @@ button {
 .tarjeta.expand:hover,
 .tarjeta.no-hover:hover {
   transform: none !important;
-  /* fuerza tamaño normal o expandido según corresponda */
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
-  /* mantiene sombra consistente */
 }
 
 /* Intensificación al hover o expansión */
