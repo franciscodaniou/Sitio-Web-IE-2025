@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>PORTAFOLIO IE 2025</h1>
+    </header>
+
+    <div id="container">
+
+        <div class="intro">
+            <p>
+                Imagen escrita es una asignatura que se centra en la intersección entre diseño,
+                la programación y arte generativo. Utilizando p5.js como herramienta principal, el curso explora los
+                fundamentos de la programación creativa y su aplicación en el diseño visual interactivo.
+            </p>
+            <p>
+                A través del creative coding se hace énfasis en el pensamiento computacional como herramienta de diseño,
+                fomentando un enfoque innovador en la resolución de problemas visuales y la creación artística. La
+                integración de herramientas de IA busca ampliar las posibilidades creativas y técnicas, sirviendo como
+                complemento al proceso de diseño y programación
+            </p>
+
+            <a href="https://wiki.ead.pucv.cl/Sitio_Web_IE_-_Francisco_Daniou" target="_blank">
+                <button>wiki del proyecto</button>
+            </a>
+        </div>
+<div class="sobre-p5js">
+    <h2>Sobre P5.JS</h2>
+    <p>
+        P5.js es una biblioteca de JavaScript que facilita la programación creativa y el arte generativo.
+        Está diseñada para que artistas, diseñadores y cualquier persona interesada en la creatividad digital
+        pueda experimentar con gráficos, animaciones e interactividad de manera sencilla y accesible.
+    </p>
+    <p>
+        Con p5.js, los conceptos de programación se aplican directamente en la creación visual,
+        fomentando un aprendizaje práctico y exploratorio. Su sintaxis intuitiva y enfoque en el
+        “sketch” permiten desarrollar proyectos interactivos y experimentar con la combinación de
+        arte y tecnología de forma inmediata.
+    </p>
+</div>
+        <div class="proyectos">
+            <h2>PROYECTOS P5.JS</h2>
+
+            <div class="galeria">
+                <div class="tarjeta" data-link="https://editor.p5js.org/franciscodaniou/full/KGFZZ_kkM"><img src="assets/imagen-tarea1.jpeg"><h3>Tarea 1</h3></div>
+                <div class="tarjeta" data-link="https://editor.p5js.org/franciscodaniou/full/U5vLALlC3"><img src="assets/imagen-tarea2.jpeg"><h3>Tarea 2</h3></div>
+                <div class="tarjeta" data-link="https://editor.p5js.org/franciscodaniou/full/5BGwedcFy"><img src="assets/imagen-tarea3.jpeg"><h3>Tarea 3</h3></div>
+                <div class="tarjeta" data-link="https://editor.p5js.org/franciscodaniou/full/yuumCMaOx"><img src="assets/imagen-tarea4.jpeg"><h3>Tarea 4</h3></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    const container = document.querySelector('#container');
+
+    header.style.cursor = 'pointer'; // opcional: cursor de mano
+
+    header.addEventListener('click', () => {
+      // Scroll suave al inicio del contenedor principal
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
