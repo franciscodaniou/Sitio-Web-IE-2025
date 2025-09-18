@@ -1,5 +1,5 @@
 
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -62,25 +62,21 @@ header {
   top: 0;
   z-index: 10;
   text-align: justify;
-  /* texto justificado */
   text-align-last: center;
-  /* última línea centrada */
   padding: 1.5rem 2rem;
   border-radius: 34px;
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   border: 1px solid rgba(220, 220, 220, 0.6);
-  /* borde reducido */
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   transition: all 2s ease, color 1s ease;
-  /* ahora incluye color y es lenta */
   margin-bottom: 2rem;
   color: var(--text-color);
-  /* color inicial (probablemente blanco) */
-  max-width: 1400px;
+  max-width: 1400px;      /* mismo ancho que .intro y .sobre-p5js */
   margin-left: auto;
   margin-right: auto;
 }
+
 
 header:hover {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
@@ -117,8 +113,6 @@ header:hover {
 .intro button {
   margin-top: 1rem;
 }
-
-
 
 .sobre-p5js {
   position: relative;
@@ -164,7 +158,7 @@ button {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.6s ease, color 0.6s ease;
+  transition: all 0.6s ease, color 0.4s ease;
   /* transición más suave e incluye color */
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
@@ -184,18 +178,33 @@ button:hover {
 }
 
 /* Galería */
-.proyectos h2 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
 .galeria {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.galeria.active {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/* Tarjetas dentro de la galería */
+.galeria .tarjeta {
+  min-width: 0; /* evita overflow dentro de grid */
+}
+
+/* Responsivo: en móviles pasa a una columna */
+@media (max-width: 768px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Tarjeta con vidrio líquido y reflejo de color de la imagen */
