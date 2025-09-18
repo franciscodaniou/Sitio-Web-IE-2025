@@ -72,7 +72,7 @@ header {
   transition: all 2s ease, color 1s ease;
   margin-bottom: 2rem;
   color: var(--text-color);
-  max-width: 1400px;      /* mismo ancho que .intro y .sobre-p5js */
+  max-width: 1400px;      
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,7 +83,6 @@ header:hover {
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
-  /* gris suave al hover */
 }
 
 /* Intro */
@@ -96,7 +95,6 @@ header:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
   transition: all 2s ease, color 1.5s ease;
-  /* transición mucho más lenta */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -125,7 +123,6 @@ header:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
   transition: all 0.4s ease, color 0.4s ease;
-  /* transiciones suaves */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -138,13 +135,11 @@ header:hover {
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
-  /* gris uniforme con otros textos */
 }
 
 .sobre-p5js p,
 .sobre-p5js button {
   color: inherit;
-  /* hereda el gris al hover */
   transition: inherit;
 }
 
@@ -165,12 +160,10 @@ button {
   color: var(--text-color);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32), 0 4px 10px rgba(173, 216, 255, 0.45);
   box-sizing: border-box;
-  /* asegura que el padding no haga crecer fuera de la caja */
 }
 
 button:hover {
-  padding: .8rem 1.5rem;
-  /* más expansión */
+  padding: 1rem 1.5rem;
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5), 0 0 44px rgba(173, 216, 255, 0.6);
@@ -197,7 +190,7 @@ button:hover {
 
 /* Tarjetas dentro de la galería */
 .galeria .tarjeta {
-  min-width: 0; /* evita overflow dentro de grid */
+  min-width: 0; 
 }
 
 /* Responsivo: en móviles pasa a una columna */
