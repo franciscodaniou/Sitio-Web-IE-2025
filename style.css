@@ -72,7 +72,7 @@ header {
   transition: all 2s ease, color 1s ease;
   margin-bottom: 2rem;
   color: var(--text-color);
-  max-width: 1400px;      
+  max-width: 1400px;      /* mismo ancho que .intro y .sobre-p5js */
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,6 +83,7 @@ header:hover {
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
+  /* gris suave al hover */
 }
 
 /* Intro */
@@ -95,6 +96,7 @@ header:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
   transition: all 2s ease, color 1.5s ease;
+  /* transición mucho más lenta */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -123,6 +125,7 @@ header:hover {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
   transition: all 0.4s ease, color 0.4s ease;
+  /* transiciones suaves */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -135,11 +138,13 @@ header:hover {
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
+  /* gris uniforme con otros textos */
 }
 
 .sobre-p5js p,
 .sobre-p5js button {
   color: inherit;
+  /* hereda el gris al hover */
   transition: inherit;
 }
 
@@ -160,10 +165,12 @@ button {
   color: var(--text-color);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32), 0 4px 10px rgba(173, 216, 255, 0.45);
   box-sizing: border-box;
+  /* asegura que el padding no haga crecer fuera de la caja */
 }
 
 button:hover {
-  padding: 1rem 1.5rem;
+  padding: .8rem 1.5rem;
+  /* más expansión */
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5), 0 0 44px rgba(173, 216, 255, 0.6);
@@ -190,7 +197,7 @@ button:hover {
 
 /* Tarjetas dentro de la galería */
 .galeria .tarjeta {
-  min-width: 0; 
+  min-width: 0; /* evita overflow dentro de grid */
 }
 
 /* Responsivo: en móviles pasa a una columna */
@@ -268,6 +275,7 @@ button:hover {
   transform: translate(-50%, -50%) scale(3);
   z-index: 999;
   border-radius: 40px;
+  /* aumento proporcional */
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(6px) saturate(300%) brightness(1.05);
@@ -294,12 +302,14 @@ button,
 /* Texto base más legible */
 body {
   font-size: 1.15rem;
+  /* más grande por defecto */
   line-height: 1.75;
 }
 
 /* Títulos principales estilo display */
 h1 {
   font-size: 3.5rem;
+  /* muy protagónico */
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -338,6 +348,18 @@ button {
   flex-wrap: wrap;
   gap: 1rem;
 }
+.galeria {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden; /* solo mientras está cerrada */
+  transition: max-height 1s ease, opacity 0.8s ease;
+}
+
+.galeria.active {
+  max-height: 8000px;
+  opacity: 1;
+  overflow: visible; /* ya no recorta las tarjetas */
+}
 
 /* Estado visible */
 .galeria.active {
@@ -348,7 +370,9 @@ button {
 /* Ajuste de tarjetas dentro de la galería */
 .galeria .tarjeta {
   flex: 1 1 calc(50% - 1rem);
+  /* 2 columnas flexibles */
   min-width: 280px;
+  /* evita que queden demasiado angostas */
 }
 
 .proyectos h2 {
@@ -377,8 +401,11 @@ button {
   cursor: pointer;
   user-select: none;
   position: relative;
+  /* necesario para ::after */
   z-index: 1;
+  /* texto por encima del fondo de vidrio */
   padding: 0.5rem 1rem;
+  /* espacio interno para que el vidrio no corte el texto */
   line-height: 1.2;
 }
 
@@ -401,6 +428,7 @@ button {
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 4px 10px rgba(173, 216, 255, 0.25);
+  /* sombra suave */
 }
 
 .proyectos h2:hover::after {
@@ -408,6 +436,7 @@ button {
   backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
   border-color: rgba(240, 240, 240, 0.8);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(173, 216, 255, 0.35);
+  /* sombra más intensa al hover */
 }
 
 /* Aberración cromática permanente más intensa */
@@ -415,7 +444,9 @@ button {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 40px;
+  /* top:0; right:0; bottom:0; left:0 */
+  border-radius: 34px;
+  /* igual que la tarjeta */
   pointer-events: none;
   background: transparent;
   border: 2.5px solid rgba(0, 191, 255, 0.5);
@@ -430,7 +461,9 @@ button {
 .tarjeta.expand:hover,
 .tarjeta.no-hover:hover {
   transform: none !important;
+  /* fuerza tamaño normal o expandido según corresponda */
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55);
+  /* mantiene sombra consistente */
 }
 
 /* Intensificación al hover o expansión */
@@ -442,3 +475,102 @@ button {
 }
 
 
+.sobre-autor {
+  position: relative;
+  padding: 2rem;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
+  -webkit-backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
+  border: 1px solid rgba(220, 220, 220, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
+  color: var(--text-color);
+  transition: all 0.4s ease, color 0.4s ease;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  margin-top: 4rem;   
+  margin-bottom: 4rem; 
+}
+
+
+.sobre-autor:hover {
+  backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
+  color: rgba(163, 161, 161, 0.615);
+}
+
+.sobre-autor p,
+.sobre-autor button {
+  color: inherit;
+  transition: inherit;
+}
+
+/* Footer con efecto liquid glass */
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
+  -webkit-backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32),
+              0 6px 14px rgba(173, 216, 255, 0.45);
+  color: var(--text-color);
+  text-align: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1.5s ease, color 0.8s ease;
+}
+
+footer:hover {
+  backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  border-color: rgba(240, 240, 240, 1);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45),
+              0 0 36px rgba(173, 216, 255, 0.55);
+  color: rgba(163, 161, 161, 0.615);
+}
+
+/* Contenedor interno */
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Texto */
+.footer-container p {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* Íconos sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-icons a {
+  display: inline-block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.social-icons a img {
+  width: 28px;
+  height: 28px;
+  filter: invert(0%) drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover líquido en íconos */
+.social-icons a:hover img {
+  transform: scale(1.25);
+  filter: invert(70%) drop-shadow(0 0 14px rgba(173, 216, 255, 0.75));
+}
