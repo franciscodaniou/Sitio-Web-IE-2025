@@ -103,3 +103,17 @@ body.addEventListener('click', (e)=>{
         body.classList.remove('modal-active');
     }
 });
+const autorTitulo = document.querySelector('.autor-titulo');
+const autorContenido = document.querySelector('.autor-contenido');
+
+autorTitulo.addEventListener('click', (e) => {
+  e.stopPropagation();
+  autorContenido.classList.toggle('active');
+});
+
+// Cierre al hacer click afuera
+document.body.addEventListener('click', (e) => {
+  if (!autorContenido.contains(e.target) && !autorTitulo.contains(e.target)) {
+    autorContenido.classList.remove('active');
+  }
+});
