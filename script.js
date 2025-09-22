@@ -103,17 +103,52 @@ body.addEventListener('click', (e)=>{
         body.classList.remove('modal-active');
     }
 });
+
 const autorTitulo = document.querySelector('.autor-titulo');
-const autorContenido = document.querySelector('.autor-contenido');
+const autorTexto = document.querySelector('.autor-texto');
 
 autorTitulo.addEventListener('click', (e) => {
   e.stopPropagation();
-  autorContenido.classList.toggle('active');
+  autorTexto.classList.toggle('active');
 });
 
-// Cierre al hacer click afuera
+// Cierre al click fuera
 document.body.addEventListener('click', (e) => {
-  if (!autorContenido.contains(e.target) && !autorTitulo.contains(e.target)) {
-    autorContenido.classList.remove('active');
+  if (!autorTexto.contains(e.target) && !autorTitulo.contains(e.target)) {
+    autorTexto.classList.remove('active');
+  }
+});
+
+const introTitulo = document.querySelector('.intro-titulo');
+const introTexto = document.querySelector('.intro-texto');
+
+introTitulo.addEventListener('click', (e) => {
+  e.stopPropagation();
+  introTexto.classList.toggle('active');
+});
+
+// opcional: cerrar si clickeas fuera
+document.body.addEventListener('click', (e) => {
+  if (!introTexto.contains(e.target) && !introTitulo.contains(e.target)) {
+    introTexto.classList.remove('active');
+  }
+});
+
+// Toggle contenido al hacer click en el título
+document.querySelectorAll('.sobre-p5js h2').forEach(title => {
+    title.addEventListener('click', () => {
+        const contenedor = title.parentElement;
+        contenedor.classList.toggle('active');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const autorTitulo = document.querySelector('.sobre-autor .autor-titulo');
+  const autorContenido = document.querySelector('.sobre-autor .autor-contenido');
+
+  if (autorTitulo && autorContenido) {
+    autorTitulo.addEventListener('click', () => {
+      autorContenido.classList.toggle('active');
+    });
   }
 });
