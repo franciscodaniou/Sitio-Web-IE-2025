@@ -483,33 +483,45 @@ button {
   backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   -webkit-backdrop-filter: blur(6px) saturate(300%) brightness(0.95);
   border: 1px solid rgba(220, 220, 220, 0.4);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 6px 14px rgba(173, 216, 255, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32),
+              0 6px 14px rgba(173, 216, 255, 0.45);
   color: var(--text-color);
-  transition: all 0.4s ease, color 0.4s ease;
+  transition: all 0.4s ease, color 0.8s ease;
   max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 4rem auto;
   z-index: 1;
-  margin-top: 4rem;   
-  margin-bottom: 4rem; 
+  cursor: pointer;
 }
-
 
 .sobre-autor:hover {
-  backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  backdrop-filter: blur(6px) saturate(400%) brightness(1.15);
+  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.30);
   border-color: rgba(240, 240, 240, 1);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
-  color: rgba(163, 161, 161, 0.615);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45),
+              0 0 36px rgba(173, 216, 255, 0.55);
+  color: rgba(200, 200, 200, 0.795);
 }
 
-.sobre-autor p,
-.sobre-autor button {
+/* Animación de expansión */
+.autor-contenido {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.5s ease;
+}
+
+.autor-contenido.active {
+  max-height: 600px; /* ajusta según el largo de tu texto */
+  opacity: 1;
+}
+
+.sobre-autor p {
+  margin-top: 1rem;
   color: inherit;
   transition: inherit;
 }
 
-/* Footer con efecto liquid glass */
+/* Footer con efecto */
 footer {
   margin-top: 3rem;
   padding: 2rem;
@@ -529,12 +541,12 @@ footer {
 }
 
 footer:hover {
-  backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
-  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.15);
+  backdrop-filter: blur(6px) saturate(400%) brightness(1.15);
+  -webkit-backdrop-filter: blur(6px) saturate(350%) brightness(1.30);
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45),
               0 0 36px rgba(173, 216, 255, 0.55);
-  color: rgba(163, 161, 161, 0.615);
+  color: rgba(200, 200, 200, 0.795);
 }
 
 /* Contenedor interno */
