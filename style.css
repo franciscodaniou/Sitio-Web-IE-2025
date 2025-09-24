@@ -222,10 +222,10 @@ button:hover {
 }
 
 .galeria.active {
-  max-height: 2000px; 
-                         
+  max-height: 2000px; /* Valor suficiente para la mayoría de galerías (ajusta si tu contenido es más alto, e.g., 3000px+).
+                         Para un valor dinámico ideal, usa JS: maxHeight = this.scrollHeight + 'px'; */
   opacity: 1;
-  overflow: visible; 
+  overflow: visible; /* Permite que el contenido se expanda completamente una vez animado */
 }
 
 .galeria .tarjeta {
