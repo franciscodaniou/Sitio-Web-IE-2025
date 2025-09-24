@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector("header");
   const body = document.querySelector('body');
@@ -97,6 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const clone = tarjeta.cloneNode(true);
       clone.classList.add('expand-clone', 'tarjeta'); 
 
+      
+      clone.dataset.originalRect = JSON.stringify({ top: rect.top, left: rect.left, width: rect.width, height: rect.height });
+
     
       const img = clone.querySelector('img');
       const title = clone.querySelector('h3');
@@ -110,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
       clone.style.height = rect.width + 'px'; 
       clone.style.margin = '0';
       clone.style.zIndex = '1000'; 
-      clone.style.transition = 'all 0.4s ease';
+      clone.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; 
+      clone.style.opacity = '1'; 
       clone.style.display = 'flex';
       clone.style.alignItems = 'center';
       clone.style.justifyContent = 'center';
@@ -124,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
       clone.style.pointerEvents = 'auto'; 
       clone.style.cursor = 'pointer'; 
       clone.style.color = 'var(--text-color, #333)'; 
+      clone.style.transform = 'scale(1)'; 
 
       
       if (img) {
@@ -149,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clone.style.height = '60vw'; 
         clone.style.maxWidth = '600px';
         clone.style.maxHeight = '600px';
-        clone.style.transform = 'translate(-50%, -50%)';
+        clone.style.transform = 'translate(-50%, -50%) scale(1)';
         clone.style.borderRadius = '40px'; 
         clone.style.boxShadow = '0 28px 56px rgba(0, 0, 0, 0.55), 0 0 44px rgba(173, 216, 255, 0.55)'; 
         clone.style.background = 'rgba(255, 255, 255, 0.18)'; 
@@ -166,23 +170,36 @@ document.addEventListener('DOMContentLoaded', function() {
   function cerrarClon() {
     if (!clonExpandido) return;
 
-    
-    clonExpandido.style.width = '300px'; 
-    clonExpandido.style.height = '300px';
+    // Opcional: Animar de vuelta a posición original para más realismo (descomenta si quieres)
+    // const originalRect = JSON.parse(clonExpandido.dataset.originalRect || '{}');
+    // clonExpandido.style.top = originalRect.top + 'px';
+    // clonExpandido.style.left = originalRect.left + 'px';
+    // clonExpandido.style.width = originalRect.width + 'px';
+    // clonExpandido.style.height = originalRect.height + 'px';
+    // clonExpandido.style.transform = 'scale(1)';
+    // clonExpandido.style.borderRadius = '34px';
+    // clonExpandido.style.opacity = '0';
+    // clonExpandido.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; // Transición más larga y smooth para cierre
+
     clonExpandido.style.top = '50%';
     clonExpandido.style.left = '50%';
-    clonExpandido.style.transform = 'translate(-50%, -50%) scale(0.8)'; 
-    clonExpandido.style.borderRadius = '34px'; 
-    clonExpandido.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.32), 0 8px 18px rgba(173, 216, 255, 0.45)'; 
+    clonExpandido.style.width = '200px'; 
+    clonExpandido.style.height = '200px';
+    clonExpandido.style.transform = 'translate(-50%, -50%) scale(0.3)'; 
+    clonExpandido.style.opacity = '0'; 
+    clonExpandido.style.borderRadius = '34px';
+    clonExpandido.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.32), 0 8px 18px rgba(173, 216, 255, 0.45)';
+    clonExpandido.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)'; 
 
+    
     setTimeout(() => {
-      if (clonExpandido) {
+      if (clonExpandido && clonExpandido.parentNode) {
         clonExpandido.remove();
         clonExpandido = null;
       }
       body.classList.remove('modal-active');
       body.style.overflow = '';
-    }, 400);
+    }, 500); // Ajustado a 500ms para la transición más larga
   }
 
  
