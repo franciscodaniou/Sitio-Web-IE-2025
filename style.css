@@ -343,7 +343,7 @@ button:hover {
 
 .expand-clone:hover::after {
   border-color: rgba(255, 0, 255, 0.8);
-  border: 2.5px solid rgba(0, 191, 255, 0.5);
+  border: 2px solid rgba(0, 191, 255, 0.5);
   filter: blur(10px) hue-rotate(60deg) saturate(800%);
 }
 
