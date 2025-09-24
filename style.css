@@ -78,7 +78,7 @@ header:hover {
   border-color: rgba(240, 240, 240, 1);
   box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45), 0 0 36px rgba(173, 216, 255, 0.55);
   color: rgba(163, 161, 161, 0.615);
-  transform: scale(1.05); 
+  transform: scale(1.1); 
 }
 
 .intro {
